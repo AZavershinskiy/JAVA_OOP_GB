@@ -28,7 +28,7 @@ public class VendingMachine {
             localString.append(product.toString());
             localString.append("\n");
         }
-        localString.append(cash + "\n");
+        localString.append("Заработано: " + cash + " RUB\n");
         return localString.toString();
     }
 
@@ -44,15 +44,15 @@ public class VendingMachine {
 
     public Product sellProduct(Product sallingProduct) {
         Product sellProduct = new Product();
-        if(localList.contains(sallingProduct)){
-             for (int i = 0; i < localList.size(); i++) {
-                if(localList.get(i) == sallingProduct) {
+        if (localList.contains(sallingProduct)) {
+            for (int i = 0; i < localList.size(); i++) {
+                if (localList.get(i) == sallingProduct) {
                     sellProduct = localList.get(i);
                     localList.remove(i);
                     cash += sellProduct.getCost();
                     return sellProduct;
                 }
-             }
+            }
         }
         return sellProduct;
     }
