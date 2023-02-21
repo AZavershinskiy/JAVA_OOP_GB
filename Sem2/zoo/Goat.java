@@ -1,4 +1,4 @@
-package Sem2.zoo.radio;
+package Sem2.zoo;
 
 public class Goat extends Herbivores implements Runable {
 

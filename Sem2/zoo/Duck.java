@@ -1,4 +1,4 @@
-package Sem2.zoo.radio;
+package Sem2.zoo;
 
 public class Duck extends Herbivores implements Flyable {
 

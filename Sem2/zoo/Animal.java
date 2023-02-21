@@ -1,4 +1,6 @@
-package Sem2.zoo.radio;
+package Sem2.zoo;
+
+import Sem2.zoo.radio.Sayable;
 
 public abstract class Animal implements Sayable{
 
@@ -23,6 +25,6 @@ public abstract class Animal implements Sayable{
         if(this instanceof Flyable) {
             str.append("Fly speed: " + ((Flyable)this).getSpeedFly());
         }
-        return String.format("%s - %s (eating: %s)", str, this.name, this.feed());
+        return String.format("%s km/h - %s (eating: %s)", str, this.name, this.feed());
     }
 }
