@@ -10,7 +10,7 @@ public class Leo extends Predator implements Runable {
 
     @Override
     public String say() {
-        return "Arrh!";
+        return "Say: Roar";
     }
 
     @Override

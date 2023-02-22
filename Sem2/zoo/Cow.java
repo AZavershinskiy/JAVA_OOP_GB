@@ -10,7 +10,7 @@ public class Cow extends Herbivores implements Runable {
 
     @Override
     public String say() {
-        return "Moo";
+        return "Say: Moo";
     }
 
     @Override

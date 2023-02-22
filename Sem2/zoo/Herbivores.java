@@ -8,6 +8,6 @@ public abstract class Herbivores extends Animal {
 
     @Override
     public String feed() {
-        return "grass";
+        return "greens";
     }
 }

@@ -10,7 +10,7 @@ public class Goat extends Herbivores implements Runable {
 
     @Override
     public String say() {
-        return "Meeh";
+        return "Say: Meeh";
     }
 
     @Override

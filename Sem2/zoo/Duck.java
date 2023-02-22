@@ -1,9 +1,9 @@
 package Sem2.zoo;
 
-public class Duck extends Herbivores implements Flyable {
+public class Duck extends Herbivores implements Flyable, Swimable {
 
     private int flySpeed = 80;
-    private int flyAlt = 3000;
+    private int swimSpeed = 3;
 
     public Duck(String name) {
         super(name);
@@ -11,7 +11,7 @@ public class Duck extends Herbivores implements Flyable {
 
     @Override
     public String say() {
-        return "Quack";
+        return "Say: Quack";
     }
 
     @Override
@@ -20,7 +20,7 @@ public class Duck extends Herbivores implements Flyable {
     }
 
     @Override
-    public int getHigh() {
-        return this.flyAlt;
+    public int getSpeedSwim() {
+        return this.swimSpeed;
     }
 }
