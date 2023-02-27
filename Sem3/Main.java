@@ -10,6 +10,7 @@ public class Main {
         User[] users = new User[] {
                 new User("Bill", "Clinton", 76),
                 new User("Monika", "Lewinsky", 49),
+                new User("Monika", "Lewinsky", 18),
                 new User("Bill", "Gates", 67),
                 new User("Tom", "Cruise", 60),
                 new User("Cipollino", "Rodari", 72)
