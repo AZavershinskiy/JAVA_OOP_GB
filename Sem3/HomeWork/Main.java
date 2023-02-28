@@ -10,8 +10,6 @@ public class Main {
         myList.add("Fifth");
 
         System.out.println("\nElements of 'myList':");
-        for (String elements : myList) {
-            System.out.println(elements);
-        }
+        myList.forEach(item -> System.out.println(item));
     }
 }
