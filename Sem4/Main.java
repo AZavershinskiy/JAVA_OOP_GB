@@ -1,5 +1,8 @@
 package Sem4;
 
+import Sem4.armor.ChainArmor;
+import Sem4.armor.HaavyShield;
+import Sem4.armor.RuggedArmor;
 import Sem4.items.Archer;
 import Sem4.items.SwordsMan;
 import Sem4.items.Warrior;
@@ -12,26 +15,26 @@ public class Main {
 
         System.out.println("\n---START---\n");
 
-        Team<Archer> archerTeam = new Team<>("Archer");
-        archerTeam.addWarrior(new Archer("Vasiliy", new Bow()))
-                .addWarrior(new Archer("Pyotr", new Bow()))
-                .addWarrior(new Archer("Michail", new Bow()))
-                .addWarrior(new Archer("Grigory", new Bow()));
+        Team<Archer> archerTeam = new Team<>("Archer Warriors");
+        archerTeam.addWarrior(new Archer("Vasiliy", new Bow(), new ChainArmor()))
+                .addWarrior(new Archer("Pyotr", new Bow(), new ChainArmor()))
+                .addWarrior(new Archer("Michail", new Bow(), new ChainArmor()))
+                .addWarrior(new Archer("Grigory", new Bow(), new ChainArmor()));
 
         System.out.println(archerTeam);
 
-        Team<Warrior> mixTeam = new Team<>("Mixer");
-        mixTeam.addWarrior(new Archer("Vasiliy", new Bow()))
-                .addWarrior(new SwordsMan("Pyotr", new Sword()))
-                .addWarrior(new Archer("Michail", new Bow()))
-                .addWarrior(new SwordsMan("Grigory", new Sword()));
+        Team<Warrior> mixTeam = new Team<>("Mixed Warriors");
+        mixTeam.addWarrior(new Archer("Vasiliy", new Bow(), new ChainArmor()))
+                .addWarrior(new SwordsMan("Pyotr", new Sword(), new RuggedArmor(), new HaavyShield()))
+                .addWarrior(new Archer("Michail", new Bow(), new ChainArmor()))
+                .addWarrior(new SwordsMan("Grigory", new Sword(), new RuggedArmor(), new HaavyShield()));
 
         System.out.println(mixTeam);
 
-        SwordsMan pyotr = new SwordsMan("Pyotr", new Sword());
-        Warrior michail = new Archer("Michail", new Bow());
+        SwordsMan pyotr = new SwordsMan("Pyotr", new Sword(), new RuggedArmor(), new HaavyShield());
+        Warrior michail = new Archer("Michail", new Bow(), new ChainArmor());
 
-        System.out.println("---The battle---");
+        System.out.println("---The battle: Pyotr x Michail---");
         while (pyotr.getHealthPoint() > 0 && michail.getHealthPoint() > 0) {
             int damage1 = pyotr.hitDamage(michail);
             int damage2 = michail.hitDamage(pyotr);

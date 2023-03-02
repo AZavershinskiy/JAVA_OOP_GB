@@ -2,32 +2,39 @@ package Sem4.items;
 
 import java.util.Random;
 
+import Sem4.armor.Armor;
 import Sem4.weapons.Weapon;
 
-public abstract class Warrior<T extends Weapon> {
+public abstract class Warrior<T1 extends Weapon, T2 extends Armor> {
 
     private String name;
-    protected T weapon;
-    protected Random rnd = new Random();
     private int healthPoint;
+    private int protectionPoint;
+    protected T1 weapon;
+    protected T2 armor;
+    protected T2 shield;
+    protected Random rnd = new Random();
 
     public int getHealthPoint() {
-        return healthPoint;
+        return healthPoint + protectionPoint;
     }
 
-    public void reduceHealtPoint(int damage) {
+    public void reduceHealthPoint(int damage) {
         this.healthPoint -= damage;
     }
 
-    public Warrior(String name, T weapon) {
+    public Warrior(String name, T1 weapon, T2 armor, T2 shield) {
         this.name = name;
         this.weapon = weapon;
-        healthPoint = 100;
+        this.armor = armor;
+        this.shield = shield;
+        this.healthPoint = 100;
+        this.protectionPoint = armor.protection() + shield.protection();
     }
 
     public int hitDamage(Warrior enemy) {
         int damage = rnd.nextInt(weapon.damage());
-        enemy.reduceHealtPoint(damage);
+        enemy.reduceHealthPoint(damage);
         return damage;
     }
 

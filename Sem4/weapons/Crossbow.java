@@ -1,8 +1,8 @@
 package Sem4.weapons;
 
-public class Bow implements Weapon {
-
-    protected int distance = 60;
+public class Crossbow implements Weapon {
+    
+    protected int distance = 30;
 
     public int getDistance() {
         return distance;
@@ -10,11 +10,11 @@ public class Bow implements Weapon {
 
     @Override
     public int damage() {
-        return 45;
+        return 65;
     }
 
     @Override
     public String toString() {
-        return "Bow [distance: " + distance + ", damage: " + damage() + "]";
+        return "Crossbow [distance: " + distance + ", damage: " + damage() + "]";
     }
 }
