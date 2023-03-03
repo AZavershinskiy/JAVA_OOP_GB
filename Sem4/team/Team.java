@@ -35,13 +35,13 @@ public class Team<T extends Warrior> {
     }
 
     public int getMinShield() {
-        int shield = 0;
+        int minShield = 0;
         for (T item : team) {
-            if (item instanceof DistanceAttacker) {
-                continue;
+            if (minShield < item.getMinShield() & item.getMinShield() > 0) {
+                minShield = item.getMinShield();
             }
-
         }
+        return minShield;
     }
 
     public int getTeamDamage() {
@@ -58,7 +58,7 @@ public class Team<T extends Warrior> {
         for (T item : team) {
             teamB.append(item.toString() + "\n");
         }
-        return String.format("Team '%s', MaxDistance: %d, MaxTeamDamage: %d\n%s",
-                name, getMaxDistance(), getTeamDamage(), teamB);
+        return String.format("TEAM '%s', MaxDistance: %d, MinShield: %d, MaxTeamDamage: %d, \n%s",
+                name, getMaxDistance(), getMinShield(), getTeamDamage(), teamB);
     }
 }

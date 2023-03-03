@@ -1,11 +1,12 @@
 package Sem4.items;
 
 import Sem4.armor.Armor;
+import Sem4.shield.Shield;
 import Sem4.weapons.Sword;
 
-public class SwordsMan extends Warrior<Sword, Armor> {
+public class SwordsMan extends Warrior<Sword, Armor, Shield> {
 
-    public SwordsMan(String name, Sword weapon, Armor armor, Armor shield) {
+    public SwordsMan(String name, Sword weapon, Armor armor, Shield shield) {
         super(name, weapon, armor, shield);
     }
 

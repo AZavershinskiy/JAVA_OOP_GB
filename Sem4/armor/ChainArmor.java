@@ -1,14 +1,16 @@
 package Sem4.armor;
 
-public class ChainArmor extends Protection {
+import Sem4.items.Warrior;
+
+public class ChainArmor implements Armor {
 
     @Override
-    public int protection() {
-        return 50 + protectionStatus.nextInt(-25, 10);
+    public int protectionArmor() {
+        return 50 + Warrior.rnd.nextInt(-25, 10);
     }
 
     @Override
     public String toString() {
-        return "Chain armor [Protection: " + protection() + "]";
+        return "Chain armor [Protection: " + protectionArmor() + "]";
     }
 }

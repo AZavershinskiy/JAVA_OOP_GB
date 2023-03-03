@@ -1,14 +1,16 @@
 package Sem4.armor;
 
-public class RuggedArmor extends Protection {
+import Sem4.items.Warrior;
+
+public class RuggedArmor implements Armor {
 
     @Override
-    public int protection() {
-        return 80 + protectionStatus.nextInt(-40, 20);
+    public int protectionArmor() {
+        return 80 + Warrior.rnd.nextInt(-40, 20);
     }
 
     @Override
     public String toString() {
-        return "Rugged Armor [Protection: " + protection() + "]";
+        return "Rugged Armor [Protection: " + protectionArmor() + "]";
     }
 }
