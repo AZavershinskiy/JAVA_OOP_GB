@@ -1,4 +1,4 @@
-package Sem4.items;
+package Sem4.warriors;
 
 import Sem4.armor.ChainArmor;
 import Sem4.shield.LightShield;

@@ -1,4 +1,4 @@
-package Sem4.items;
+package Sem4.warriors;
 
 public interface DistanceAttacker {
     int getDistance();

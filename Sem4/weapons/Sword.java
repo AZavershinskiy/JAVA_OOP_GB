@@ -4,7 +4,7 @@ public class Sword implements Weapon {
     
     @Override
     public int damage() {
-        return 80;
+        return 70;
     }
 
     @Override

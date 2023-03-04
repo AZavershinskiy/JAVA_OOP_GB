@@ -1,6 +1,6 @@
 package Sem4.shield;
 
-import Sem4.items.Warrior;
+import Sem4.warriors.Warrior;
 
 public class LightShield implements Shield {
 

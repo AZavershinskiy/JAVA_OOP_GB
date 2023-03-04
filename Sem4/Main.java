@@ -2,15 +2,15 @@ package Sem4;
 
 import Sem4.armor.ChainArmor;
 import Sem4.armor.RuggedArmor;
-import Sem4.items.Archer;
-import Sem4.items.CrossbowMan;
-import Sem4.items.SpearMan;
-import Sem4.items.SwordsMan;
-import Sem4.items.Warrior;
 import Sem4.shield.HeavyShield;
 import Sem4.shield.LightShield;
 import Sem4.shield.NoShield;
 import Sem4.team.Team;
+import Sem4.warriors.Archer;
+import Sem4.warriors.CrossbowMan;
+import Sem4.warriors.SpearMan;
+import Sem4.warriors.SwordsMan;
+import Sem4.warriors.Warrior;
 import Sem4.weapons.Bow;
 import Sem4.weapons.Crossbow;
 import Sem4.weapons.Spear;
@@ -41,21 +41,21 @@ public class Main {
         System.out.println("WARRIOR without SHIELD:\n" + gennadiy + "\n");
 
         System.out.println("\n---The BATTLE: 2 warriors---\n");
-        SpearMan pyotr = new SpearMan("Pyotr", new Spear(), new RuggedArmor(), new LightShield());
-        System.out.println(pyotr + "\n");
+        SpearMan alexander = new SpearMan("Alexander", new Spear(), new RuggedArmor(), new LightShield());
+        System.out.println(alexander + "\n");
 
-        Warrior michail = new CrossbowMan("Michail", new Crossbow(), new ChainArmor(), new LightShield());
-        System.out.println(michail + "\n");
+        Warrior dmitriy = new CrossbowMan("Dmitriy", new Crossbow(), new ChainArmor(), new LightShield());
+        System.out.println(dmitriy + "\n");
 
-        while (pyotr.getHealthPoint() > 0 && michail.getHealthPoint() > 0) {
-            int damage1 = pyotr.hitDamage(michail);
-            int damage2 = michail.hitDamage(pyotr);
-            System.out.printf("PYOTR's health: %d (Got damage: %d) x MICHAIL's health: %d (Got damage: %d)\n",
-                    pyotr.getHealthPoint(), damage2, michail.getHealthPoint(), damage1);
+        while (alexander.getHealthPoint() > 0 && dmitriy.getHealthPoint() > 0) {
+            int damage1 = alexander.hitDamage(dmitriy);
+            int damage2 = dmitriy.hitDamage(alexander);
+            System.out.printf("ALEXANDER's health: %d (Got damage: %d) x DMITRIY's health: %d (Got damage: %d)\n",
+            alexander.getHealthPoint(), damage2, dmitriy.getHealthPoint(), damage1);
         }
-        if (pyotr.getHealthPoint() > 0)
-            System.out.println("WINNER's Pyotr!");
+        if (alexander.getHealthPoint() > 0)
+            System.out.println("WINNER's ALEXANDER!");
         else
-            System.out.println("WINNER's Michail!");
+            System.out.println("WINNER's DMITRIY!");
     }
 }

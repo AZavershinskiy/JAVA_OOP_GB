@@ -3,8 +3,8 @@ package Sem4.team;
 import java.util.ArrayList;
 import java.util.List;
 
-import Sem4.items.DistanceAttacker;
-import Sem4.items.Warrior;
+import Sem4.warriors.DistanceAttacker;
+import Sem4.warriors.Warrior;
 
 public class Team<T extends Warrior> {
 

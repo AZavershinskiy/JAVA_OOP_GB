@@ -1,6 +1,6 @@
 package Sem4.armor;
 
-import Sem4.items.Warrior;
+import Sem4.warriors.Warrior;
 
 public class ChainArmor implements Armor {
 

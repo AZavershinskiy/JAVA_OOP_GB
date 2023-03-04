@@ -1,4 +1,4 @@
-package Sem4.items;
+package Sem4.warriors;
 
 import java.util.Random;
 
