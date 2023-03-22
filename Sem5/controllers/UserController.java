@@ -1,9 +1,12 @@
 package Sem5.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Sem5.model.Repository;
+import Sem5.model.Separators;
 import Sem5.model.User;
+import Sem5.model.UserMapper;
 import Sem5.views.Validation;
 
 public class UserController {
@@ -21,19 +24,19 @@ public class UserController {
         repository.CreateUser(user);
     }
 
-    public User readUser(String userId) throws Exception {
+    public User readUser(String userID) throws Exception {
         List<User> users = repository.getAllUsers();
-        User user = userSearch(userId, users);
+        User user = userSearch(userID, users);
         return user;
     }
 
-    private static User userSearch(String userId, List<User> users) throws Exception {
+    private static User userSearch(String userID, List<User> users) throws Exception {
         for (User user : users) {
-            if (user.getId().equals(userId)) {
+            if (user.getID().equals(userID)) {
                 return user;
             }
         }
-        throw new Exception("User not found");
+        throw new Exception("Пользователь не найден");
     }
 
     public List<User> readAllUsers() {
@@ -47,5 +50,38 @@ public class UserController {
         user.setLastName(newUser.getLastName());
         user.setPhone(newUser.getPhone());
         repository.saveUsers(users);
+    }
+
+    public void deleteUser(String readID) throws Exception {
+        List<User> users = repository.getAllUsers();
+        User userDelete = userSearch(readID, users); // добавил для Exception
+        List<User> newUsers = new ArrayList<User>();
+        for (User user : users) {
+            if (!(user.getID()).equals(userDelete.getID()))
+                newUsers.add(user);
+        }
+        repository.saveUsers(newUsers);
+    }
+
+    public void saveUs(String separator) {
+        Separators sep;
+        while (true) {
+            try {
+                sep = Separators.valueOf(separator.toUpperCase());
+                switch (sep) {
+                    case COMMA:
+                        UserMapper.delimiter = ",";
+                        break;
+                    case SEMICOLON:
+                        UserMapper.delimiter = ";";
+                        break;
+                    case SPACE:
+                        UserMapper.delimiter = " ";
+                        break;
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }

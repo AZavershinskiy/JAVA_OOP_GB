@@ -23,42 +23,28 @@ public class ViewUser {
                 if (com == Commands.EXIT)
                     return;
                 switch (com) {
-                    case CREATE:
-                        createUser();
-                        break;
                     case READ:
                         readUser();
                         break;
-                    case DELETE:
-                        break;
-                    case EXIT:
-                        break;
-                    case LIST:
-                        listUsers();
-                        break;
-                    case NONE:
+                    case CREATE:
+                        createUser();
                         break;
                     case UPDATE:
                         updateUser();
                         break;
-                    default:
+                    case LIST:
+                        listUsers();
+                        break;
+                    case SAVEUS:
+                        saveUs();
+                        break;
+                    case DELETE:
+                        deleteUser();
                         break;
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-        }
-    }
-
-    private void updateUser() throws Exception {
-        String readId = prompt("Введите редактируймый  ID пользователя: ");
-        userController.updateUser(readId, inpiutUser());
-    }
-
-    private void listUsers() {
-        List<User> listUsers = userController.readAllUsers();
-        for (User user : listUsers) {
-            System.out.println("\n" + user);
         }
     }
 
@@ -68,6 +54,15 @@ public class ViewUser {
         System.out.println("\n" + user);
     }
 
+    private void createUser() throws Exception {
+        userController.saveUser(inpiutUser());
+    }
+
+    private void updateUser() throws Exception {
+        String readID = prompt("Введите редактируймый  ID пользователя: ");
+        userController.updateUser(readID, inpiutUser());
+    }
+
     private User inpiutUser() {
         String firstName = prompt("Имя: ");
         String lastName = prompt("Фамилия: ");
@@ -75,8 +70,22 @@ public class ViewUser {
         return new User(firstName, lastName, phone);
     }
 
-    private void createUser() throws Exception {
-        userController.saveUser(inpiutUser());
+    private void listUsers() {
+        List<User> listUsers = userController.readAllUsers();
+        for (User user : listUsers) {
+            System.out.println("\n" + user);
+        }
+    }
+
+    private void deleteUser() throws Exception {
+        String readID = prompt("Введите ID пользователя для удаления: ");
+        userController.deleteUser(readID);
+    }
+
+    private void saveUs() {
+        String separator = prompt(
+                "Выберите формат разделителя:\ncomma - запятая\nsemicolon - точка с запятой\nspace - пробел");
+        userController.saveUs(separator);
     }
 
     private String prompt(String message) {

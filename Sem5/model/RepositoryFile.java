@@ -28,7 +28,7 @@ public class RepositoryFile implements Repository {
         List<User> users = getAllUsers();
         int max = 0;
         for (User item : users) {
-            int id = Integer.parseInt(item.getId());
+            int id = Integer.parseInt(item.getID());
             if (max < id) {
                 max = id;
             }
