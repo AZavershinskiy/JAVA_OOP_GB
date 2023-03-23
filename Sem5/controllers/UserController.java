@@ -85,11 +85,12 @@ public class UserController {
                         repository.saveUsers(users3);
                         break;
                 }
+                System.out.println("Сохранено");
+                return;
             } catch (Exception e) {
                 System.out.println(e.getMessage());
+                break;
             }
-            System.out.println("Сохранено");
-            break;
         }
     }
 }
