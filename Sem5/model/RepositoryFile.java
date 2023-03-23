@@ -5,7 +5,7 @@ import java.util.List;
 
 public class RepositoryFile implements Repository {
 
-    private UserMapper mapper = new UserMapper();
+    private static UserMapper mapper = new UserMapper();
     private FileOperation fileOperation;
 
     public RepositoryFile(FileOperation fileOperation) {
@@ -44,7 +44,12 @@ public class RepositoryFile implements Repository {
     public void saveUsers(List<User> users) {
         List<String> lines = new ArrayList<>();
         for (User item : users) {
-            lines.add(mapper.map(item));
+            if (UserMapper.delimiter == ",")
+                lines.add(mapper.mapComma(item));
+            if (UserMapper.delimiter == ";")
+                lines.add(mapper.mapSemicolon(item));
+            if (UserMapper.delimiter == " ")
+                lines.add(mapper.mapSpace(item));
         }
         fileOperation.saveAllLines(lines);
     }

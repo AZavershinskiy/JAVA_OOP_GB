@@ -4,8 +4,18 @@ public class UserMapper {
 
     public static String delimiter;
 
-    public String map(User user) {
+    public String mapComma(User user) {
         return String.format("%s,%s,%s,%s",
+                user.getID(), user.getFirstName(), user.getLastName(), user.getPhone());
+    }
+
+    public String mapSemicolon(User user) {
+        return String.format("%s;%s;%s;%s",
+                user.getID(), user.getFirstName(), user.getLastName(), user.getPhone());
+    }
+
+    public String mapSpace(User user) {
+        return String.format("%s %s %s %s",
                 user.getID(), user.getFirstName(), user.getLastName(), user.getPhone());
     }
 

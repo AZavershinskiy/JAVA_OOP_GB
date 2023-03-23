@@ -70,18 +70,26 @@ public class UserController {
                 sep = Separators.valueOf(separator.toUpperCase());
                 switch (sep) {
                     case COMMA:
+                        List<User> users1 = repository.getAllUsers();
                         UserMapper.delimiter = ",";
+                        repository.saveUsers(users1);
                         break;
                     case SEMICOLON:
+                        List<User> users2 = repository.getAllUsers();
                         UserMapper.delimiter = ";";
+                        repository.saveUsers(users2);
                         break;
                     case SPACE:
+                        List<User> users3 = repository.getAllUsers();
                         UserMapper.delimiter = " ";
+                        repository.saveUsers(users3);
                         break;
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
+            System.out.println("Сохранено");
+            break;
         }
     }
 }

@@ -84,7 +84,7 @@ public class ViewUser {
 
     private void saveUs() {
         String separator = prompt(
-                "Выберите формат разделителя:\ncomma - запятая\nsemicolon - точка с запятой\nspace - пробел");
+                "\nВыберите формат разделителя:\ncomma - запятая,\nsemicolon - точка с запятой,\nspace - пробел.\n\nВыбор: ");
         userController.saveUs(separator);
     }
 
